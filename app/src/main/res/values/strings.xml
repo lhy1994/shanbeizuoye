@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyReader</string>
+    <string name="title_activity_detail2">Detail2Activity</string>
+    <string name="title_activity_word">WordActivity</string>
+</resources>

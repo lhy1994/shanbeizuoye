@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/btn_dismiss"
+        android:background="#4e6cef"
+        android:src="@drawable/ic_arrow_drop_down_white_24dp"
+        android:drawablePadding="0dp"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Medium Text"
+        android:id="@+id/tv_word"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="此处可添加释义"
+        android:gravity="bottom"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/textView"
+        android:layout_toRightOf="@id/tv_word"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:background="@color/colorPrimary"
+        android:text="添加到生词本"
+        android:textSize="10sp"
+        android:textColorHint="@color/colorAccent"
+        android:gravity="center"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:textStyle="italic"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_add" />
+
+
+</RelativeLayout>
