@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="level 0"
-        android:textColor="@android:color/holo_blue_light"
+        android:textColor="@android:color/holo_red_light"
         android:id="@+id/tv_level"
         android:layout_above="@+id/seekBar"
         android:gravity="center"

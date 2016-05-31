@@ -65,6 +65,8 @@ public class DetailActivity extends AppCompatActivity {
     private ImageButton dismissButton;
     private AppCompatButton addWordButton;
     private TextView word;
+    private int width;
+    private int height;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,6 +86,8 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void init() {
+        width = getWindowManager().getDefaultDisplay().getWidth();
+        height = getWindowManager().getDefaultDisplay().getHeight();
         content = DatabaseUtils.getContent(lesson);
         mWordList = DatabaseUtils.getWordList();
 
@@ -125,13 +129,12 @@ public class DetailActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                 levelTextView.setText("Level " + progress);
-                int width = getWindowManager().getDefaultDisplay().getWidth();
-                int height = getWindowManager().getDefaultDisplay().getHeight();
+
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(100, 100);
                 if (progress == 0) {
-                    layoutParams.setMargins(0, height - 250, 0, 0);
+                    layoutParams.setMargins(0, 7*height/10, 0, 0);
                 } else {
-                    layoutParams.setMargins(width * progress / 5 - 100, height - 250, 0, 0);
+                    layoutParams.setMargins(width * progress / 5 - 100, 7*height/10, 0, 0);
                 }
                 levelTextView.setLayoutParams(layoutParams);
                 if (highLight) {
@@ -214,7 +217,7 @@ public class DetailActivity extends AppCompatActivity {
                                 tv.getSelectionEnd()).toString();
                 Log.d("tapped on:", s);
                 popupWindow.dismiss();
-                popupWindow.showAsDropDown(seekBar,200,-200);
+                popupWindow.showAsDropDown(seekBar,0,-height/5);
                 word.setText(s);
             }
 
@@ -227,7 +230,7 @@ public class DetailActivity extends AppCompatActivity {
     }
     public void initPopupWindow(){
         View view = getLayoutInflater().inflate(R.layout.popup, null);
-        popupWindow = new PopupWindow(view, RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow = new PopupWindow(view, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         dismissButton = (ImageButton) view.findViewById(R.id.btn_dismiss);
         addWordButton = (AppCompatButton) view.findViewById(R.id.btn_add);
         word = (TextView) view.findViewById(R.id.tv_word);
