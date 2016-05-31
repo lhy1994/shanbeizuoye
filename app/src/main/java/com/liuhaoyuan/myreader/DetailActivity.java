@@ -67,6 +67,8 @@ public class DetailActivity extends AppCompatActivity {
     private TextView word;
     private int width;
     private int height;
+    private int popupHeight;
+    private RelativeLayout relativeLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,6 +82,7 @@ public class DetailActivity extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab);
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         levelTextView = (TextView) findViewById(R.id.tv_level);
+        relativeLayout = (RelativeLayout) findViewById(R.id.rl);
 
         init();
         initPopupWindow();
@@ -104,12 +107,14 @@ public class DetailActivity extends AppCompatActivity {
                         contentTextView.setText(newContent);
                         getWords(contentTextView);
                         contentTextView.setMovementMethod(LinkMovementMethod.getInstance());
+                        spanWord(progress);
                     }
                 }
             });
         } else {
             Log.e("myError", " no content or TextView found");
         }
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,13 +135,13 @@ public class DetailActivity extends AppCompatActivity {
 
                 levelTextView.setText("Level " + progress);
 
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(100, 100);
-                if (progress == 0) {
-                    layoutParams.setMargins(0, 7*height/10, 0, 0);
-                } else {
-                    layoutParams.setMargins(width * progress / 5 - 100, 7*height/10, 0, 0);
-                }
-                levelTextView.setLayoutParams(layoutParams);
+//                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(100, 100);
+//                if (progress == 0) {
+//                    layoutParams.setMargins(0, 8*height/10, 0, 0);
+//                } else {
+//                    layoutParams.setMargins(width * progress / 5 - 100, 8*height/10, 0, 0);
+//                }
+//                levelTextView.setLayoutParams(layoutParams);
                 if (highLight) {
                     spanWord(progress);
                 }
@@ -217,8 +222,8 @@ public class DetailActivity extends AppCompatActivity {
                                 tv.getSelectionEnd()).toString();
                 Log.d("tapped on:", s);
                 popupWindow.dismiss();
-                popupWindow.showAsDropDown(seekBar,0,-height/5);
-                word.setText(s);
+                popupWindow.showAsDropDown(relativeLayout,0,-height/4);
+                word.setText(s.replaceAll("\n",""));
             }
 
             @Override
@@ -229,8 +234,16 @@ public class DetailActivity extends AppCompatActivity {
         };
     }
     public void initPopupWindow(){
-        View view = getLayoutInflater().inflate(R.layout.popup, null);
-        popupWindow = new PopupWindow(view, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        final View view = getLayoutInflater().inflate(R.layout.popup, null);
+        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                popupHeight = view.getHeight();
+                view.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            }
+        });
+        popupWindow = new PopupWindow(view, RelativeLayout.LayoutParams.MATCH_PARENT, height/4);
+        popupWindow.setOutsideTouchable(true);
         dismissButton = (ImageButton) view.findViewById(R.id.btn_dismiss);
         addWordButton = (AppCompatButton) view.findViewById(R.id.btn_add);
         word = (TextView) view.findViewById(R.id.tv_word);

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/rl"
     tools:context="com.liuhaoyuan.myreader.DetailActivity">
 
 
@@ -26,11 +27,7 @@
             android:textColor="@android:color/black" />
     </ScrollView>
 
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        >
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -43,7 +40,6 @@
         android:layout_marginEnd="49dp"
         android:layout_marginRight="20dp"
         android:src="@drawable/ic_lightbulb_outline_white_24dp" />
-    </android.support.design.widget.CoordinatorLayout>
 
     <SeekBar
         android:layout_width="match_parent"
@@ -59,15 +55,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="level 0"
         android:textColor="@android:color/holo_red_light"
         android:id="@+id/tv_level"
         android:layout_above="@+id/seekBar"
         android:gravity="center"
         android:visibility="gone"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

@@ -14,11 +14,6 @@
         android:layout_height="match_parent"
         android:id="@+id/listView"
          />
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        >
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_word"
             android:layout_width="wrap_content"
@@ -31,6 +26,5 @@
             android:layout_marginEnd="49dp"
             android:layout_marginRight="20dp"
             android:src="@drawable/ic_format_indent_increase_white_36dp" />
-    </android.support.design.widget.CoordinatorLayout>
 
 </RelativeLayout>
