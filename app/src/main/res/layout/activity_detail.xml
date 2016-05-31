@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ae="http://www.angellecho.com/"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.liuhaoyuan.myreader.MainActivity">
+    tools:context="com.liuhaoyuan.myreader.DetailActivity">
 
 
     <ScrollView
@@ -18,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:letterSpacing="1"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -28,6 +26,11 @@
             android:textColor="@android:color/black" />
     </ScrollView>
 
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        >
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -39,8 +42,8 @@
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="49dp"
         android:layout_marginRight="20dp"
-        android:backgroundTint="@color/colorAccent"
         android:src="@drawable/ic_lightbulb_outline_white_24dp" />
+    </android.support.design.widget.CoordinatorLayout>
 
     <SeekBar
         android:layout_width="match_parent"
@@ -51,7 +54,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:thumb="@drawable/seekbar"
-        android:progressTint="@android:color/holo_blue_light"
         android:layout_alignParentStart="true" />
 
     <TextView
