@@ -36,17 +36,19 @@
         />
 
     <android.support.v7.widget.AppCompatButton
-        android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
         android:background="@color/colorPrimary"
         android:text="添加到生词本"
-        android:textSize="10sp"
+        android:textSize="12sp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:textColorHint="@color/colorAccent"
-        android:gravity="center"
         android:shadowColor="@color/colorPrimaryDark"
         android:textColor="@android:color/white"
         android:layout_alignParentBottom="true"
         android:textStyle="italic"
+        android:layout_marginBottom="5dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/btn_add" />
 

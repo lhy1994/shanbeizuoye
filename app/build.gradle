@@ -24,6 +24,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
-    compile 'me.codeboy.android:align-text-view:2.3.0'
-    compile 'me.biubiubiu.justifytext:library:1.1'
+    compile 'com.huxq17.android:SwipeCardsView:1.0.0'
 }

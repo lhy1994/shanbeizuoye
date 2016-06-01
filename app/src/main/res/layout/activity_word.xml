@@ -1,10 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<ListView
+    xmlns:card="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/list_word">
-</ListView>
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    >
+
+    <com.huxq17.swipecardsview.SwipeCardsView
+        android:id="@+id/swipCardsView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        card:alphaOffsetStep="40"
+        card:scaleOffsetStep="0.08"
+        android:layout_margin="30dp"
+        card:yOffsetStep="20dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/swipCardsView"
+        android:textSize="20sp"
+        android:singleLine="true"
+        android:padding="5dp"
+        android:text="拖动卡片查看下一个单词,也可以点击按钮将单词从生词本移除"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="重新浏览"
+        android:textStyle="italic"
+        android:id="@+id/btn_look"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+
+        android:background="@color/colorPrimary"
+        />
+
 </LinearLayout>
